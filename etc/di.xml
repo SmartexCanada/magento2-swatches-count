@@ -1,0 +1,10 @@
+<?xml version="1.0"?>
+<!--
+/**
+ * Copyright © Smartex Canada All rights reserved.
+ * See COPYING.txt for license details.
+ */
+-->
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="Magento\Swatches\ViewModel\Product\Renderer\Configurable" type="Smartex\SwatchesCount\ViewModel\Product\Renderer\Configurable"/>
+</config>

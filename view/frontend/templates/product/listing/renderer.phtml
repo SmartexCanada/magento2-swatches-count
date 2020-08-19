@@ -1,0 +1,59 @@
+<?php
+/**
+ * Copyright © Smartex Canada All rights reserved.
+ * See COPYING.txt for license details.
+ */
+?>
+<?php
+/** @var $block \Magento\Swatches\Block\Product\Renderer\Listing\Configurable */
+$productId = $block->getProduct()->getId();
+/** @var \Magento\Swatches\ViewModel\Product\Renderer\Configurable $configurableViewModel */
+$configurableViewModel = $block->getConfigurableViewModel();
+
+$showCount = $configurableViewModel->getShowSwatchCount();
+?>
+<div class="swatch-opt-<?= $block->escapeHtmlAttr($productId) ?><?= $block->escapeHtmlAttr(($showCount) ? ' swatch-count' : '') ?>"
+     data-role="swatch-option-<?= $block->escapeHtmlAttr($productId) ?>"></div>
+
+<?php if ($showCount) : ?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-<?= $block->escapeJs($productId) ?>]": {
+            "Smartex_SwatchesCount/js/swatch-count-renderer": {
+                "jsonConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>
+            }
+        }
+    }
+</script>
+<?php else: ?>
+<script type="text/x-magento-init">
+    {
+        "[data-role=swatch-option-<?= $block->escapeJs($productId) ?>]": {
+            "Magento_Swatches/js/swatch-renderer": {
+                "selectorProduct": ".product-item-details",
+                "onlySwatches": true,
+                "enableControlLabel": false,
+                "numberToShow": <?=  $block->escapeJs($block->getNumberSwatchesPerProduct()) ?>,
+                "jsonConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
+                "jsonSwatchConfig": <?= /* @noEscape */ $block->getJsonSwatchConfig() ?>,
+                "mediaCallback": "<?= $block->escapeJs($block->escapeUrl($block->getMediaCallback())) ?>",
+                "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $block->getJsonSwatchSizeConfig() ?>,
+                "showTooltip": <?= $block->escapeJs($configurableViewModel->getShowSwatchTooltip()) ?>
+            }
+        }
+    }
+</script>
+
+<script type="text/x-magento-init">
+    {
+        "[data-role=priceBox][data-price-box=product-id-<?= $block->escapeJs($productId) ?>]": {
+            "priceBox": {
+                "priceConfig": {
+                    "priceFormat": <?= /* @noEscape */ $block->getPriceFormatJson(); ?>,
+                    "prices": <?= /* @noEscape */ $block->getPricesJson(); ?>
+                }
+            }
+        }
+    }
+</script>
+<?php endif; ?>
