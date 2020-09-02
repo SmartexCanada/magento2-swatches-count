@@ -1,10 +1,23 @@
+[![Packagist](https://img.shields.io/packagist/v/smartex/module-swatches-count)](https://packagist.org/packages/smartex/module-swatches-count)
+[![Packagist](https://img.shields.io/packagist/dt/smartex/module-swatches-count)](https://packagist.org/packages/smartex/module-swatches-count)
+
 # Magento 2 Swatches Count
 Magento 2 extension to display swatch count instead of thumbnails in products list
+
+## System requirements
+This extension supports and has been tested on the following versions of Magento:
+
+Community Edition (CE)
+- 2.3.4
+- 2.3.5-p1
+- 2.4.0
+
+Support for Magento versions prior to 2.3.4 is not guaranteed, but should be compatible with versions 2.3.0 and up.
 
 ## Installation
 To install this extension, use the following command:
 
-    composer require smartex/magento2-inventory-sync
+    composer require smartex/module-swatches-count
 
 Afterwards, enable this module, run the setup scripts and flush the cache:
 
