@@ -1,4 +1,4 @@
-[![Packagist License](https://img.shields.io/packagist/l/smartex/module-swatches-count)](https://packagist.org/packages/smartex/module-swatches-count)
+[![Packagist License](https://img.shields.io/packagist/l/smartex/module-swatches-count?color=blue)](https://packagist.org/packages/smartex/module-swatches-count)
 [![Packagist](https://img.shields.io/packagist/v/smartex/module-swatches-count)](https://packagist.org/packages/smartex/module-swatches-count)
 [![Packagist](https://img.shields.io/packagist/dt/smartex/module-swatches-count)](https://packagist.org/packages/smartex/module-swatches-count)
 
