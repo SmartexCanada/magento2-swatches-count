@@ -16,7 +16,7 @@ Open Source Edition
 Support for Magento versions prior to 2.3.4 is not guaranteed, but should be compatible with versions 2.3.0 and up.
 
 ## Installation
-To install this extension, use the following command:
+To install this module, use the following command:
 
     composer require smartex/module-swatches-count
 
