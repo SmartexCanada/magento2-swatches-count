@@ -1,7 +1,7 @@
 <?php
 /**
  * Copyright © Smartex Canada All rights reserved.
- * See COPYING.txt for license details.
+ * See LICENSE for license details.
  */
 declare(strict_types = 1);
 
