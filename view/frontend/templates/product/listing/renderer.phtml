@@ -5,20 +5,23 @@
  */
 ?>
 <?php
-/** @var $block \Magento\Swatches\Block\Product\Renderer\Listing\Configurable */
-$productId = $block->getProduct()->getId();
-/** @var \Magento\Swatches\ViewModel\Product\Renderer\Configurable $configurableViewModel */
+/**
+ * @var \Magento\Swatches\Block\Product\Renderer\Listing\Configurable $block
+ * @var \Magento\Framework\Escaper $escaper
+ * @var \Magento\Swatches\ViewModel\Product\Renderer\Configurable $configurableViewModel
+ */
 $configurableViewModel = $block->getConfigurableViewModel();
+$productId = $block->getProduct()->getId();
 
 $showCount = $configurableViewModel->getShowSwatchCount();
 ?>
-<div class="swatch-opt-<?= $block->escapeHtmlAttr($productId) ?><?= $block->escapeHtmlAttr(($showCount) ? ' swatch-count' : '') ?>"
-     data-role="swatch-option-<?= $block->escapeHtmlAttr($productId) ?>"></div>
+<div class="swatch-opt-<?= $escaper->escapeHtmlAttr($productId) ?><?= $escaper->escapeHtmlAttr(($showCount) ? ' swatch-count' : '') ?>"
+     data-role="swatch-option-<?= $escaper->escapeHtmlAttr($productId) ?>"></div>
 
 <?php if ($showCount) : ?>
 <script type="text/x-magento-init">
     {
-        "[data-role=swatch-option-<?= $block->escapeJs($productId) ?>]": {
+        "[data-role=swatch-option-<?= $escaper->escapeJs($productId) ?>]": {
             "Smartex_SwatchesCount/js/swatch-count-renderer": {
                 "jsonConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>
             }
@@ -28,17 +31,17 @@ $showCount = $configurableViewModel->getShowSwatchCount();
 <?php else: ?>
 <script type="text/x-magento-init">
     {
-        "[data-role=swatch-option-<?= $block->escapeJs($productId) ?>]": {
+        "[data-role=swatch-option-<?= $escaper->escapeJs($productId) ?>]": {
             "Magento_Swatches/js/swatch-renderer": {
                 "selectorProduct": ".product-item-details",
                 "onlySwatches": true,
                 "enableControlLabel": false,
-                "numberToShow": <?=  $block->escapeJs($block->getNumberSwatchesPerProduct()) ?>,
+                "numberToShow": <?=  $escaper->escapeJs($block->getNumberSwatchesPerProduct()) ?>,
                 "jsonConfig": <?= /* @noEscape */ $block->getJsonConfig() ?>,
                 "jsonSwatchConfig": <?= /* @noEscape */ $block->getJsonSwatchConfig() ?>,
-                "mediaCallback": "<?= $block->escapeJs($block->escapeUrl($block->getMediaCallback())) ?>",
+                "mediaCallback": "<?= $escaper->escapeJs($escaper->escapeUrl($block->getMediaCallback())) ?>",
                 "jsonSwatchImageSizeConfig": <?= /* @noEscape */ $block->getJsonSwatchSizeConfig() ?>,
-                "showTooltip": <?= $block->escapeJs($configurableViewModel->getShowSwatchTooltip()) ?>
+                "showTooltip": <?= $escaper->escapeJs($configurableViewModel->getShowSwatchTooltip()) ?>
             }
         }
     }
@@ -46,7 +49,7 @@ $showCount = $configurableViewModel->getShowSwatchCount();
 
 <script type="text/x-magento-init">
     {
-        "[data-role=priceBox][data-price-box=product-id-<?= $block->escapeJs($productId) ?>]": {
+        "[data-role=priceBox][data-price-box=product-id-<?= $escaper->escapeJs($productId) ?>]": {
             "priceBox": {
                 "priceConfig": {
                     "priceFormat": <?= /* @noEscape */ $block->getPriceFormatJson(); ?>,
