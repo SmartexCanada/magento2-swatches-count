@@ -9,11 +9,7 @@ Magento 2 extension to display swatch count instead of thumbnails in products li
 This extension supports and has been tested on the following versions of Magento:
 
 Open Source Edition
-- 2.3.4
-- 2.3.5-p1
-- 2.4.0
-
-Support for Magento versions prior to 2.3.4 is not guaranteed, but should be compatible with versions 2.3.0 and up.
+- 2.4.0 - 2.4.5
 
 ## Installation
 To install this module, use the following command:
