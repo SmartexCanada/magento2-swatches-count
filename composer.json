@@ -3,7 +3,7 @@
     "description": "Display count of swatches in product list instead of swatches themselves",
     "type": "magento2-module",
     "license": "OSL-3.0",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "require": {
         "magento/framework": "^103.0.0",
         "magento/module-swatches": "*"
